@@ -1,0 +1,20 @@
+[{
+    "id" : "1",
+    "text" : "站点维护",
+    "cls" : "forum-ct",
+    "leaf": true,
+    "qtitle" : "site/list.action"
+    }, {
+    "id" : "2",
+    "text" : "产品表单维护",
+    "cls" : "forum-ct",
+    "leaf": true,
+    "qtitle" : "pages/site/list.html"
+    }, {
+    "id" : "3",
+    "text" : "站点-产品维护",
+    "cls" : "forum-ct",
+    "leaf": true,
+    "qtitle" : "pages/site/list.html"
+    }
+]

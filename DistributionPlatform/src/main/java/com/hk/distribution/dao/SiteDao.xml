@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hk.distribution.dao.SiteDao">
+
+    <resultMap type="com.hk.distribution.model.Site" id="siteResult">
+        <id property="address" column="address"/>
+        <result property="showType" column="show_type"/>
+        <result property="targetURI" column="target_uri"/>
+    </resultMap>
+
+    <select id="getSiteList" resultMap="siteResult">
+        select address, show_type, target_uri from site
+    </select>
+    
+    <insert id="saveSite" parameterType="com.hk.distribution.model.Site">
+        insert into site values (#{address}, #{showType}, #{targetURI})
+    </insert>
+    
+    <update id="updateSite" parameterType="com.hk.distribution.model.Site">
+        update site set show_type = #{showType}, target_uri = #{targetURI}
+        where address = #{address}
+    </update>
+    
+    <delete id="deleteSiteByAdress" parameterType="list">
+        delete from site where address in 
+        <foreach item="addr"  collection="list" open="(" separator="," close=")">
+            #{addr}
+        </foreach>
+    </delete>
+</mapper>
