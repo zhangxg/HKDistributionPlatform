@@ -26,6 +26,11 @@ var treestore = Ext.create('Ext.data.TreeStore', {
 				checked : false,
 				leaf : true
 			}, {
+				text : "QQ号码",
+				id:'qq',
+				checked : false,
+				leaf : true
+			},{
 				text : "手机号码",
 				id :'telnumber',
 				checked : false,
@@ -77,6 +82,7 @@ var productPanel = Ext.create('Ext.panel.Panel', {
 
 function onButtonClick(button, e, eOpts) {
 	
+	var productType = Ext.getCmp('productType');
 	var tree = Ext.getCmp('treePanel');
 	var records = tree.getView().getChecked();
 	names = [];
@@ -85,18 +91,30 @@ function onButtonClick(button, e, eOpts) {
 			names.push(rec.get('id'));
 		}
 	});
-	Ext.Ajax.request({
-	    url: '../pf/generate.action',
-	    params: {
-	        id: names
-	    },
-	    success: function(response){
-	        var text = response.responseText;
-	        Ext.MessageBox.show({
-	            msg: text
+	if(productType.value == null){
+		 Ext.MessageBox.show({
+	            msg: '请选择产品类型!'
 	        });
-	    }
-	});
+	}else if (names.length == 0){
+		Ext.MessageBox.show({
+            msg: '请选择产品类型表单项！'
+        });
+	}else{
+		Ext.Ajax.request({
+		    url: '../pf/generate.action',
+		    params: {
+		        id: names,
+		        pt :productType.value
+		    },
+		    success: function(response){
+		        var text = response.responseText;
+		        Ext.MessageBox.show({
+		            msg: text
+		        });
+		    }
+		});
+	}
+	
 }
 /** create a Tree panel* */
 
