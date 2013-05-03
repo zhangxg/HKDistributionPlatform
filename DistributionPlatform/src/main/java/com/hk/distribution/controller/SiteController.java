@@ -27,6 +27,24 @@ public class SiteController {
         mav.setViewName("site/list");
         return mav;
     }
+    
+    @RequestMapping("/releasesitestatusmg")
+    public ModelAndView listSiteProducts() {
+
+        ModelAndView mav = new ModelAndView();
+
+        mav.setViewName("site/releasesitestatusmg");
+        return mav;
+    }
+    
+    @RequestMapping("/productsiteapprove")
+    public ModelAndView listProductsMG() {
+
+        ModelAndView mav = new ModelAndView();
+
+        mav.setViewName("site/productsiteapprove");
+        return mav;
+    }
 
     @RequestMapping("/save")
     @ResponseBody

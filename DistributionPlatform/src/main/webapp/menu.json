@@ -16,5 +16,17 @@
     "cls" : "forum-ct",
     "leaf": true,
     "qtitle" : "sitepro/edit.action"
+    }, {
+    "id" : "4",
+    "text" : "站点发布审批",
+    "cls" : "forum-ct",
+    "leaf": true,
+    "qtitle" : "site/productsiteapprove.action"
+    }, {
+    "id" : "5",
+    "text" : "站点状态管理",
+    "cls" : "forum-ct",
+    "leaf": true,
+    "qtitle" : "site/releasesitestatusmg.action"
     }
 ]
