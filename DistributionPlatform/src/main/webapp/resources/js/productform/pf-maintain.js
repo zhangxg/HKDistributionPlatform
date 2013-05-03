@@ -7,10 +7,12 @@ var treestore = Ext.create('Ext.data.TreeStore', {
 			checked : false,
 			children : [ {
 				text : "姓名",
+				id :'name',
 				checked : false,
 				leaf : true
 			}, {
 				text : "年龄",
+				id :'age',
 				checked : false,
 				leaf : true
 			} ]
@@ -20,10 +22,12 @@ var treestore = Ext.create('Ext.data.TreeStore', {
 			checked : false,
 			children : [ {
 				text : "电子邮件",
+				id:'email',
 				checked : false,
 				leaf : true
 			}, {
 				text : "手机号码",
+				id :'telnumber',
 				checked : false,
 				leaf : true
 			} ]
@@ -60,14 +64,44 @@ var productPanel = Ext.create('Ext.panel.Panel', {
     },{
     		xtype: 'button',
             width: 80,
-            text: '保存'
+            text: '保存',
+            listeners: {
+                click: {
+                    fn: this.onButtonClick,
+                    scope: this
+                }
+            }
        
     }]
 });
 
+function onButtonClick(button, e, eOpts) {
+	
+	var tree = Ext.getCmp('treePanel');
+	var records = tree.getView().getChecked();
+	names = [];
+	Ext.Array.each(records,function(rec){
+		if(rec.data.leaf){
+			names.push(rec.get('id'));
+		}
+	});
+	Ext.Ajax.request({
+	    url: '../pf/generate.action',
+	    params: {
+	        id: names
+	    },
+	    success: function(response){
+	        var text = response.responseText;
+	        Ext.MessageBox.show({
+	            msg: text
+	        });
+	    }
+	});
+}
 /** create a Tree panel* */
 
 var treePanel = Ext.create('Ext.tree.Panel', {
+	id : 'treePanel',
 	title : '产品表单配置',
 	region :'center',
 	rootVisible : false,
