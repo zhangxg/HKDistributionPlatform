@@ -9,7 +9,7 @@
     "text" : "产品表单维护",
     "cls" : "forum-ct",
     "leaf": true,
-    "qtitle" : "pages/site/list.html"
+    "qtitle" : "pf/configur.action"
     }, {
     "id" : "3",
     "text" : "站点-产品维护",
