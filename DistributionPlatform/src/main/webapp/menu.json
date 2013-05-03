@@ -15,6 +15,6 @@
     "text" : "站点-产品维护",
     "cls" : "forum-ct",
     "leaf": true,
-    "qtitle" : "pages/site/list.html"
+    "qtitle" : "sitepro/edit.action"
     }
 ]
