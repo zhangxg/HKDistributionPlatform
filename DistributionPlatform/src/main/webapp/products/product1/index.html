@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   
+    <title>产品1表单</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	
+	<link rel="stylesheet" type="text/css" href="http://localhost:8080/DistributionPlatform/products/css/form.css">
+	<script type="text/javascript" src="http://localhost:8080/DistributionPlatform/products/js/jquery-1.9.1.js"></script>
+  </head>
+  
+  <body>
+	<div class="container">
+	<form action="#" method="post" class="form-horizontal">
+	<div id="wizard">
+		<ul id="status">
+			<li class="active"><strong>1.</strong>第一步</li>
+			<li><strong>2.</strong>第二步</li>
+			<li><strong>3.</strong>完成</li>
+		</ul>
+
+		<div class="items">
+		<div class="page">
+			<div id="picBox">
+			<!-- 用于填充保险种类的简介 -->
+				<ul id="show_pic" style="left:0;">
+			    	<li><img src="http://localhost:8080/DistributionPlatform/products/image/1.jpg" /></li>
+			        <li><img src="http://localhost:8080/DistributionPlatform/products/image/2.jpg" /></li>
+			        <li><img src="http://localhost:8080/DistributionPlatform/products/image/3.jpg" /></li>
+			        <li><img src="http://localhost:8080/DistributionPlatform/products/image/4.jpg" /></li>
+			        <li><img src="http://localhost:8080/DistributionPlatform/products/image/5.jpg" /></li>
+			        <li><img src="http://localhost:8080/DistributionPlatform/products/image/6.jpg" /></li>
+			    </ul>
+			    <ul id="icon_num">
+			    	<li class="active">1</li>
+			        <li>2</li>
+			        <li>3</li>
+			        <li>4</li>
+			        <li>5</li>
+			    </ul>
+			 <!-- End -->
+			</div>
+				<script type="text/javascript" src="http://localhost:8080/DistributionPlatform/products/js/form.js"></script>
+		<!-- end display image -->	
+		<div class="btn_nav">
+                  <input type="button" class="next right" value="下一步&raquo;" />
+               </div>		
+    	</div>
+			<div class="page2">
+               <h3>填写联系信息<br/><em>请告诉我们您的联系方式。</em></h3>
+               <p><label>E-mail：</label><input type="text" class="input" name="email" /></p>
+               <p><label>QQ：</label><input type="text" class="input" name="qq" /></p>
+               <p><label>手机号码：</label><input type="text" class="input" name="mobile" /></p>
+               <div class="btn_nav">
+                  <input type="button" class="prev" style="float:left" value="&laquo;上一步" />
+                  <input type="button" class="next right" value="下一步&raquo;" />
+               </div>
+            </div>
+			<div class="page2">
+			   <br/>
+	              <br/>
+	              <br/>
+	              <p>请点击“确定”按钮完成注册。</p>
+	              <br/>
+	              <br/>
+	              <br/>
+               <div class="btn_nav">
+                  <input type="button" class="prev" style="float:left" value="&laquo;上一步" />
+                  <input type="button" class="next right" id="sub" value="确定" />
+               </div>
+            </div>
+		</div>
+	</div>
+</form>
+	</div>
+  </body>
+</html>

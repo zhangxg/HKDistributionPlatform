@@ -49,7 +49,7 @@ Ext.onReady(function() {
         tbar:[{
             id:'addNew',
             text: '新增',
-            iconCls:'icon-add ',
+            iconCls:'icon-add',
             handler:function(){
                 showAdd();
             }

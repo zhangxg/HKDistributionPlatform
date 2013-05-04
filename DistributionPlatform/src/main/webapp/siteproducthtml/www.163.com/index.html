@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script src="http://localhost:8080/DistributionPlatform/resources/js/SlideTrans.js"></script>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="http://localhost:8080/DistributionPlatform/resources/css/slideTrans.css"/>
+<div class="container" id="idContainer2">
+	<ul id="idSlider2">
+<li><a href="http://localhost:8080/DistributionPlatform/products/product1/index.html" target="_blank"><img src="http://localhost:8080/DistributionPlatform/resources/img/product/product1.jpg"/></a></li>
+<li><a href="http://localhost:8080/DistributionPlatform/products/product2/index.html" target="_blank"><img src="http://localhost:8080/DistributionPlatform/resources/img/product/product2.jpg"/></a></li>
+<li><a href="http://localhost:8080/DistributionPlatform/products/product3/index.html" target="_blank"><img src="http://localhost:8080/DistributionPlatform/resources/img/product/product3.jpg"/></a></li>
+<li><a href="http://localhost:8080/DistributionPlatform/products/product4/index.html" target="_blank"><img src="http://localhost:8080/DistributionPlatform/resources/img/product/product4.jpg"/></a></li>
+<li><a href="http://localhost:8080/DistributionPlatform/products/product5/index.html" target="_blank"><img src="http://localhost:8080/DistributionPlatform/resources/img/product/product5.jpg"/></a></li>
+	</ul>
+	<ul class="num" id="idNum">
+	</ul>
+</div>
+<script>
+var nums = [], timer, n = $$("idSlider2").getElementsByTagName("li").length,
+	st = new SlideTrans("idContainer2", "idSlider2", n, {
+		onStart: function(){
+			forEach(nums, function(o, i){ o.className = st.Index == i ? "on" : ""; })
+		}
+	});
+for(var i = 1; i <= n; AddNum(i++)){};
+function AddNum(i){
+	var num = $$("idNum").appendChild(document.createElement("li"));
+	num.innerHTML = i--;
+	num.onmouseover = function(){
+		timer = setTimeout(function(){ num.className = "on"; st.Auto = false; st.Run(i); }, 200);
+	}
+	num.onmouseout = function(){ clearTimeout(timer); num.className = ""; st.Auto = true; st.Run(); }
+	nums[i] = num;
+}
+st.Run();
+</script>
+</body>
+</html>

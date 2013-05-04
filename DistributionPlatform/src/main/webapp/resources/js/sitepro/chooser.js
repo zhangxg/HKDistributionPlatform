@@ -45,10 +45,15 @@ Ext.onReady(function() {
                 store: Ext.create('Ext.data.Store', {
                     fields:['name', 'value'],
                     data:[
-                        {name:'汽车买卖网站A', value:1},
-                        {name:'在线医院网站B', value:2}
+                        {name:'www.163.com', value:'www.163.com'},
+                        {name:'www.164.com', value:'www.164.com'}
                     ]
-                })
+                }),
+                listeners:{
+                    "select":function(){
+                    	site=this.value; 
+                     }
+                }
             },
             {
                 xtype: 'combobox',
@@ -61,10 +66,26 @@ Ext.onReady(function() {
                 store: Ext.create('Ext.data.Store', {
                     fields:['name', 'value'],
                     data:[
-                        {name:'零极限A款保险理财计划', value:1},
-                        {name:'零极限B款保险理财计划', value:2}
+                        {name:'零极限A款保险理财计划', value:'product1'},
+                        {name:'零极限B款保险理财计划', value:'product2'},
+                        {name:'零极限Ｃ款保险理财计划', value:'product3'},
+                        {name:'零极限Ｄ款保险理财计划', value:'product4'},
+                        {name:'零极限Ｅ款保险理财计划', value:'product5'}
                     ]
-                })
+                }),
+                listeners:{
+                    "select":function(){
+                    	var i = 0;
+                    	for (; i < products.length; i++) {
+                    		if(products[i]==this.value){
+                    			break;
+                    		}
+                        }
+                    	products[i]=this.value;
+                    	 //alert(this.value); 
+                    	//alert(Ext.get("combo").dom.value);
+                     }
+                }
             },
             {
                 xtype: 'button',
@@ -77,7 +98,10 @@ Ext.onReady(function() {
             {
                 xtype: 'button',
                 margin: '0 0 0 5',
-                text: '保存'
+                text: '保存',
+                handler: function() {
+                    aaa();
+                }
             }]
         },
         {
@@ -91,7 +115,8 @@ Ext.onReady(function() {
         renderTo : Ext.getBody()
     })
 
-    
+    var products=[];
+    var site;
     /*
      * Here is where we create the window from which the user can select images to insert into the 'images' div.
      * This window is a simple subclass of Ext.window.Window, and you can see its source code in Window.js.
@@ -105,6 +130,29 @@ Ext.onReady(function() {
             selected: insertSelectedImage
         }
     });
+    
+    function aaa(){
+    	var imgids=[];
+    	
+    	for (var i = 0; i < Ext.getCmp('images').items.length; i++) {
+    		
+    		imgids[i]=Ext.getCmp('images').items.get(i).id;
+        }
+    	Ext.Ajax.request({
+    		url: '../sitepro/savehtml.action',
+    		params: {
+    			id: imgids,
+    			siteid:site,
+    			pid:products
+    		},
+    		success: function(response){
+    			var text = response.responseText;
+    			Ext.MessageBox.show({
+    				msg: text
+    			});
+    		}
+    	});
+    }
     
     /*
      * This function is called whenever the user double-clicks an image inside the window. It creates

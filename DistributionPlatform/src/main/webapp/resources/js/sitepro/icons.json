@@ -1,32 +1,32 @@
 [
     {
-        name: 'Kitchen Sink',
-        thumb: 'sink.png',
-        url: 'kitchensink',
+        name: 'product1',
+        thumb: 'product1.jpg',
+        url: 'product1',
         type: 'Application'
     },
     {
-        name: 'Twitter app',
-        thumb: 'twitter.png',
-        url: 'twitter',
+        name: 'product2',
+        thumb: 'product2.jpg',
+        url: 'product2',
         type: 'Application'
     },
     {
-        name: 'Kiva app',
-        thumb: 'kiva.png',
-        url: 'kiva',
+        name: 'product3',
+        thumb: 'product3.jpg',
+        url: 'product3',
         type: 'Application'
     },
     {
-        name: 'Geocongress',
-        thumb: 'geocongress.png',
-        url: 'geocongress',
+        name: 'product4',
+        thumb: 'product4.jpg',
+        url: 'product4',
         type: 'Application'
     },
     {
-        name: 'AJAX',
-        thumb: 'ajax.png',
-        url: 'ajax',
+        name: 'product5',
+        thumb: 'product5.jpg',
+        url: 'product5',
         type: 'Example'
     },
     {

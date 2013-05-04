@@ -7,6 +7,7 @@ import com.hk.distribution.model.Site;
 public interface SiteService {
 
     public List<Site> getSiteList();
+    public List<Site> getSite(Site site);
 
     public void saveSite(Site site);
 

@@ -7,6 +7,8 @@ import com.hk.distribution.model.Site;
 public interface SiteDao {
 
     public List<Site> getSiteList();
+    
+    public List<Site> getSite(Site site);
 
     public void saveSite(Site site);
 

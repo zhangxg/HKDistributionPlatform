@@ -1,0 +1,39 @@
+/*用于分步表单的样式*/
+#wizard {border:5px solid #789;font-size:12px;height:400px;margin:20px auto;overflow:hidden;width:570px;position:relative;-moz-border-radius:5px;-webkit-border-radius:5px;}
+#wizard .items{width:20000px; height:350px; clear:both; position:absolute;}
+#wizard .right{float:right;}
+#wizard #status{height:35px;background:#123;padding-left:25px !important;}
+
+#status li{float:left;color:#fff;padding:10px 30px;}
+#status li.active{background-color:#369;font-weight:normal;}
+
+.page{padding:10px 30px;width:500px;float:left}
+.page h3{height:42px; font-size:16px; border-bottom:1px dotted #ccc; margin-bottom:20px; padding-bottom:5px}
+.page h3 em{font-size:12px; font-weight:500; font-style:normal}
+.page p{line-height:24px;}
+.page p label{font-size:14px; display:block;}
+
+.page2{padding:10px 30px;width:500px;float:left;height:350px;overflow:auto}
+.page2 h3{height:42px; font-size:16px; border-bottom:1px dotted #ccc; margin-bottom:20px; padding-bottom:5px}
+.page2 h3 em{font-size:12px; font-weight:500; font-style:normal}
+.page2 p{line-height:24px;}
+.page2 p label{font-size:14px; display:block;}
+
+.btn_nav{height:36px; line-height:36px; margin:20px auto;}
+.prev,.next{width:100px; height:32px; line-height:32px; border:1px solid #d3d3d3; cursor:pointer}
+
+/*用于保险种类介绍的样式*/
+#picBox{width:500px; height:270px; margin:10px auto; overflow:hidden; position:relative;}
+#picBox ul#show_pic{ margin:0; padding:0; list-style:none; height:205px; width:3050px; position:absolute;}
+#picBox ul#show_pic li{ float:left; margin:0; padding:0; height:205px;}
+#picBox ul#show_pic li img{ width:500px;heigh:255px; display:block;}
+#icon_num{ position:absolute; bottom:0px; right:10px;}
+#icon_num li{ float:left;width:15px; height:15px; list-style:none; color:#39F; text-align:center;  cursor:pointer; padding:0; margin:0;margin-right:5px;}
+#icon_num li:hover,#icon_num li.active{color:#fff;}
+#picBox_top{width:500px; height:205px; margin:50px auto; position:relative; overflow:hidden;}
+#picBox_top ul#show_pic_top{ margin:0; padding:0; list-style:none; height:205px; width:500px; position:absolute;}
+#picBox_top ul#show_pic_top li{ float:left; margin:0; padding:0; height:205px;}
+#picBox_top ul#show_pic_top li img{ display:block;}
+#icon_num_top{ position:absolute; bottom:0px; right:10px;}
+#icon_num_top li{ float:left; width:15px; height:15px; list-style:none; color:#39F; text-align:center;  cursor:pointer; padding:0; margin:0;margin-right:5px;}
+#icon_num_top li:hover,#icon_num_top li.active{color:#fff;}

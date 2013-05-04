@@ -21,6 +21,11 @@ public class SiteServiceImpl implements SiteService {
     public List<Site> getSiteList() {
         return siteDao.getSiteList();
     }
+    
+    @Override
+    public List<Site> getSite(Site site) {
+        return siteDao.getSite(site);
+    }
 
     @Override
     public void saveSite(Site site) {
