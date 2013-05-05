@@ -9,6 +9,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,13 +41,17 @@ public class SiteProController {
     }
     
     @RequestMapping("/savehtml")
-    public String savehtml(@RequestParam("id") String[] images, @RequestParam("siteid") String siteid, @RequestParam("pid") String[] products) {
+    public String savehtml(HttpServletRequest request, @RequestParam("id") String[] images, @RequestParam("siteid") String siteid, @RequestParam("pid") String[] products) {
     	
-    	
+    	//public String savehtml(HttpServletRequest request,@RequestParam("id") String[] images, @RequestParam("siteid") String siteid, @RequestParam("pid") String[] products) {
+    	  
+    	String fullURL=request.getRequestURL().toString();
+    	String contextPath=request.getContextPath();
+    	int indexCon=fullURL.indexOf(contextPath);
+    	contextPath=fullURL.substring(0,indexCon+contextPath.length()+1);
     	String line;
     	BufferedReader br=null;
     	StringBuffer temp = new StringBuffer();
-    	
     	// part1----------------
 		try {
 			br = new BufferedReader(new FileReader(new File(FILE_PART1)));
@@ -77,18 +83,27 @@ public class SiteProController {
         int showType=site.getShowType();
         System.out.print("88888888888888888888888888 site " +site.getAddress() + " show type is :"+showType);
     	String htmlStr="";
+    	
+    	htmlStr+=contextPath+"resources/js/SlideTrans.js\"></script>\n";
+    	htmlStr+="</head>\n";
+    	htmlStr+="<body style=\"margin: 0px;\">\n";
+    	htmlStr+="<link rel=\"stylesheet\" type=\"text/css\" href=\"" +contextPath+"resources/css/slideTrans.css\"/>\n";
+    	htmlStr+="<div class=\"container\" id=\"idContainer2\">\n";
+    	htmlStr+="<ul id=\"idSlider2\">\n";
+    	
     	int i=0;
     	for(;i<images.length;i++){
     		htmlStr+="<li>";
     		if(showType==1){
     			htmlStr+="<a href=\""+PRODUCT_HOME_PAGE+"\" target=\"_blank\">";
     		}else if(showType==2){
-    			htmlStr+="<a href=\"http://localhost:8080/DistributionPlatform/products/"+products[i]+"/index.html\" target=\"_blank\">";
+    			htmlStr+="<a href=\""+contextPath+"products/"+products[i]+"/index.html\" target=\"_blank\">";
     		}
     		 
-    		htmlStr+="<img src=\"http://localhost:8080/DistributionPlatform/resources/img/product/"+images[i]+"\"/></a>";
+    		htmlStr+="<img src=\""+contextPath+"resources/img/product/"+images[i]+"\"/></a>";
     		htmlStr+="</li>\n";
     	}
+    	temp=temp.replace(temp.length()-1, temp.length(), "");
     	temp.append(htmlStr);
     	
     	// part2------------
@@ -118,6 +133,8 @@ public class SiteProController {
             	siteDir.mkdirs();
             }
 			bw = new BufferedWriter(new FileWriter(new File("D:\\Work\\GitHubWorkPlace\\HKDistributionPlatform\\DistributionPlatform\\src\\main\\webapp\\siteproducthtml\\"+siteid+"\\index.html")));
+			System.out.println("***************************** URL: "+contextPath);
+			System.out.println("***************************** Target URI: "+"D:\\Work\\GitHubWorkPlace\\HKDistributionPlatform\\DistributionPlatform\\src\\main\\webapp\\siteproducthtml\\"+siteid+"\\index.html");
 			System.out.println(temp.toString());
 			bw.write(temp.toString());
 			bw.close();
