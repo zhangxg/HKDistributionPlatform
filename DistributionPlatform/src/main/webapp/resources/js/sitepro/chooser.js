@@ -66,10 +66,10 @@ Ext.onReady(function() {
                 store: Ext.create('Ext.data.Store', {
                     fields:['name', 'value'],
                     data:[
-                        {name:'零极限A款保险理财计划', value:'product1'},
-                        {name:'零极限B款保险理财计划', value:'product2'},
-                        {name:'零极限Ｃ款保险理财计划', value:'product3'},
-                        {name:'零极限Ｄ款保险理财计划', value:'product4'},
+                        {name:'弘康灵动一号保险理财计划', value:'product1'},
+                        {name:'弘康灵动二号保险理财计划', value:'product2'},
+                        {name:'弘康零极限B款保险理财计划', value:'product3'},
+                        {name:'弘康零极限C款保险理财计划', value:'product4'},
                         {name:'零极限Ｅ款保险理财计划', value:'product5'}
                     ]
                 }),

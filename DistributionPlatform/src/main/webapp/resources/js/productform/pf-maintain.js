@@ -59,10 +59,10 @@ var productPanel = Ext.create('Ext.panel.Panel', {
         store: Ext.create('Ext.data.Store', {
             fields:['name', 'value'],
             data:[
-                {name:'弘康灵动一号保险理财计划', value:1},
-                {name:'弘康灵动二号保险理财计划', value:2},
-                {name:'弘康零极限B款保险理财计划 ', value:3},
-                {name:'弘康零极限C款保险理财计划 ', value:4}
+                {name:'弘康灵动一号保险理财计划', value:'product1'},
+                {name:'弘康灵动二号保险理财计划', value:'product2'},
+                {name:'弘康零极限B款保险理财计划 ', value:'product3'},
+                {name:'弘康零极限C款保险理财计划 ', value:'product4'}
                 
             ]
         })

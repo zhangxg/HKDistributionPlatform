@@ -2,7 +2,7 @@
 #wizard {border:5px solid #789;font-size:12px;height:400px;margin:20px auto;overflow:hidden;width:570px;position:relative;-moz-border-radius:5px;-webkit-border-radius:5px;}
 #wizard .items{width:20000px; height:350px; clear:both; position:absolute;}
 #wizard .right{float:right;}
-#wizard #status{height:35px;background:#123;padding-left:25px !important;}
+#wizard #status{height:35px;background:#123;margin-top:0px;padding-left:25px !important;}
 
 #status li{float:left;color:#fff;padding:10px 30px;}
 #status li.active{background-color:#369;font-weight:normal;}

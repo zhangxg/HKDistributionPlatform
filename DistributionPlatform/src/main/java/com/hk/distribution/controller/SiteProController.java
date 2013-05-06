@@ -96,8 +96,10 @@ public class SiteProController {
     		htmlStr+="<li>";
     		if(showType==1){
     			htmlStr+="<a href=\""+PRODUCT_HOME_PAGE+"\" target=\"_blank\">";
-    		}else if(showType==2){
+    		}else if(showType==3){
     			htmlStr+="<a href=\""+contextPath+"products/"+products[i]+"/index.html\" target=\"_blank\">";
+    		}else if(showType==2){
+    			htmlStr+="<a href=\"http://117.128.183.102/products/index.html?phtml="+contextPath+"products/"+products[i]+"/index.html\" target=\"_blank\">";
     		}
     		 
     		htmlStr+="<img src=\""+contextPath+"resources/img/product/"+images[i]+"\"/></a>";

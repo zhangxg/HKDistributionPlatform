@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.io.FileUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -21,6 +23,7 @@ import com.hk.distribution.model.FormConfig;
 @RequestMapping("/pf")
 public class ProductFormController {
 
+	private static final String PRODUCT_DIR="D:\\Work\\GitHubWorkPlace\\HKDistributionPlatform\\DistributionPlatform\\src\\main\\webapp\\products\\";
 	@RequestMapping("configur")
 	public ModelAndView productFormConfigur(){
 		
@@ -31,10 +34,15 @@ public class ProductFormController {
 	
 	 	@RequestMapping("/generate")
 	    @ResponseBody
-	    public String generateTemplate(@RequestParam("id") String[] id, @RequestParam("pt") String pt) {
-	 		StringBuffer innerHTML = new StringBuffer();
+	    public String generateTemplate(HttpServletRequest request,@RequestParam("id") String[] id, @RequestParam("pt") String pt) {
 	 		
-	 		String templatePath = "http://localhost:8080/DistributionPlatform/template/FormDemo.html";
+	 		String fullURL=request.getRequestURL().toString();
+	    	String contextPath=request.getContextPath();
+	    	int indexCon=fullURL.indexOf(contextPath);
+	    	contextPath=fullURL.substring(0,indexCon+contextPath.length()+1);
+	    	
+	 		StringBuffer innerHTML = new StringBuffer();
+	 		String templatePath = contextPath+"template/FormDemo.html";
 	 		/**start using jsoup generate html**/
 	 		try{
 	 			Document doc = Jsoup.parse(new URL(templatePath).openStream(),"GBK",templatePath);
@@ -51,7 +59,15 @@ public class ProductFormController {
 	 			}
 	 			dynamicForm.prepend(innerHTML.toString());
 	 			String html=doc.html();
-				FileUtils.writeStringToFile(new File("D://"+pt+"test.html"), html);
+	 			html=html.replaceAll("##constpath##", contextPath);
+	 			System.out.println("***************************************");
+	 			System.out.println(html);
+	 			System.out.println("***************************************");
+	 			File siteDir = new File(PRODUCT_DIR+pt);
+	 			 if (!siteDir.exists()) {
+	             	siteDir.mkdirs();
+	             }
+				FileUtils.writeStringToFile(new File(PRODUCT_DIR+pt+"\\index.html"), html);
 	 		}catch(IOException e){
 	 			e.printStackTrace();
 	 		}
