@@ -92,6 +92,7 @@ Ext.onReady(function() {
                 margin: '0 0 0 250',
                 text: '维护图片',
                 handler: function() {
+                    win.filter('type', this.up('panel').items.items[1].getValue());
                     win.show();
                 }
             },

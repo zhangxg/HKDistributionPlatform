@@ -139,7 +139,7 @@ Ext.define('Ext.chooser.Window', {
         store.suspendEvents();
         store.clearFilter();
         store.filter({
-            property: 'name',
+            property: 'type',
             anyMatch: true,
             value   : newValue
         });

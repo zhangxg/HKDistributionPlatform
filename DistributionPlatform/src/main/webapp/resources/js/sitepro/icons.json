@@ -3,114 +3,114 @@
         name: 'product1',
         thumb: 'product1.jpg',
         url: 'product1',
-        type: 'Application'
+        type: 'product1'
     },
     {
         name: 'product2',
         thumb: 'product2.jpg',
         url: 'product2',
-        type: 'Application'
+        type: 'product2'
     },
     {
         name: 'product3',
         thumb: 'product3.jpg',
         url: 'product3',
-        type: 'Application'
+        type: 'product3'
     },
     {
         name: 'product4',
         thumb: 'product4.jpg',
         url: 'product4',
-        type: 'Application'
+        type: 'product4'
     },
     {
         name: 'product5',
         thumb: 'product5.jpg',
         url: 'product5',
-        type: 'Example'
+        type: 'product5'
     },
     {
         name: 'Carousel',
         thumb: 'carousel.png',
         url: 'carousel',
-        type: 'Example'
+        type: 'product1'
     },
     {
         name: 'Drag &amp; Drop',
         thumb: 'DnD.png',
         url: 'dragdrop',
-        type: 'Example'
+        type: 'product2'
     },
     {
         name: 'Forms',
         thumb: 'forms.png',
         url: 'forms',
-        type: 'Example'
+        type: 'product3'
     },
     {
         name: 'Guide',
         thumb: 'guide.png',
         url: 'guide',
-        type: 'Example'
+        type: 'product4'
     },
     {
         name: 'Icons',
         thumb: 'icons.png',
         url: 'icons',
-        type: 'Example'
+        type: 'product5'
     },
     {
         name: 'Map',
         thumb: 'map.png',
         url: 'map',
-        type: 'Example'
+        type: 'product1'
     },
     {
         name: 'Nested List',
         thumb: 'nestedList.png',
         url: 'nestedlist',
-        type: 'Example'
+        type: 'product2'
     },
     {
         name: 'Overlays',
         thumb: 'overlays.png',
         url: 'overlays',
-        type: 'Example'
+        type: 'product3'
     },
     {
         name: 'Picker',
         thumb: 'picker.png',
         url: 'picker',
-        type: 'Example'
+        type: 'product4'
     },
     {
         name: 'Sortable',
         thumb: 'sortable.png',
         url: 'sortable',
-        type: 'Example'
+        type: 'product5'
     },
     {
         name: 'Tabs',
         thumb: 'tabs.png',
         url: 'tabs',
-        type: 'Example'
+        type: 'product1'
     },
     {
         name: 'Tabs 2',
         thumb: 'tabs2.png',
         url: 'tabs2',
-        type: 'Example'
+        type: 'product2'
     },
     {
         name: 'Toolbars',
         thumb: 'toolbars.png',
         url: 'toolbars',
-        type: 'Example'
+        type: 'product3'
     },
     {
         name: 'YQL',
         thumb: 'yql.png',
         url: 'yql',
-        type: 'Example'
+        type: 'product4'
     }
 ]
