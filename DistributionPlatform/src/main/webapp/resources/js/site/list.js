@@ -66,30 +66,41 @@ Ext.onReady(function() {
             text:'删除',
             iconCls:'icon-del',
             handler:function(){
-                var models = grid.getSelectionModel().selected.items;
-                var ids = '';
-                Ext.iterate(models, function(key, value) {
-                    var tmp = key.data.address;
-                    if(ids.length !=0) {
-                        ids = ids + ',' + tmp;
-                    } else {
-                        ids = ids + tmp;
-                    }
-                }, this);
-                Ext.Ajax.request({
-                    url : '../site/delete.action',
-                    params : {
-                        address : ids
-                    },
+            	
+//            	Ext.Msg.confirm("Confirm", "Sure to delete?", function(id){
+//            		if (id != "yes") {
+//            			return;
+//            		}
+//            	}); // this does not work.
+            	
+            	Ext.Msg.confirm("请确认", "确认要删除?", function(id){
+            		if (id == "yes") {
+            			var models = grid.getSelectionModel().selected.items;
+                        var ids = '';
+                        Ext.iterate(models, function(key, value) {
+                            var tmp = key.data.address;
+                            if(ids.length !=0) {
+                                ids = ids + ',' + tmp;
+                            } else {
+                                ids = ids + tmp;
+                            }
+                        }, this);
+                        Ext.Ajax.request({
+                            url : '../site/delete.action',
+                            params : {
+                                address : ids
+                            },
 
-                    success : function(response, option) {
-                        Ext.Msg.alert('提示','删除成功');
-                        grid.store.load();
-                    },
-                    failure : function() {
-                        Ext.Msg.alert('提示','删除失败');
-                    }
-                });
+                            success : function(response, option) {
+                                Ext.Msg.alert('提示','删除成功');
+                                grid.store.load();
+                            },
+                            failure : function() {
+                                Ext.Msg.alert('提示','删除失败');
+                            }
+                        });
+            		}
+            	});
             }
         }]
     });
