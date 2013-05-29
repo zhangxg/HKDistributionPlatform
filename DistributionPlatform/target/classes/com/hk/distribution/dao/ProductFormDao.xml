@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hk.distribution.dao.ProductFormDao">
+
+    <resultMap type="com.hk.distribution.model.FormAttribute" id="formAttrResult">
+        <id property="name" column="name"/>
+        <result property="type" column="type"/>
+        <result property="options" column="options"/>
+        <result property="required" column="required"/>
+    </resultMap>
+    
+    <insert id="saveFormAttribute" parameterType="com.hk.distribution.model.FormAttribute">
+        insert into FormAtrribute values (#{name}, #{type}, #{options}, #{required})
+    </insert>
+    
+    <select id="listFormAttributes" resultMap="formAttrResult">
+        select name, type, options, required from FormAtrribute
+    </select>
+    
+</mapper>

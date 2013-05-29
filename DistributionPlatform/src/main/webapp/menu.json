@@ -28,5 +28,11 @@
     "cls" : "forum-ct",
     "leaf": true,
     "qtitle" : "site/releasesitestatusmg.action"
+    }, {
+    "id" : "6",
+    "text" : "表单属性维护",
+    "cls" : "forum-ct",
+    "leaf": true,
+    "qtitle" : "pf/maintainFormAttributes.action"
     }
 ]
