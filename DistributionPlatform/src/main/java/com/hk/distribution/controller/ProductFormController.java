@@ -57,7 +57,7 @@ public class ProductFormController {
 		FormAttribute attr = new FormAttribute();
 
 		attr.setName(name);
-		attr.setType(type);
+		attr.setType(Integer.valueOf(type));
 		attr.setOptions(options);
 		attr.setRequired(required);
 

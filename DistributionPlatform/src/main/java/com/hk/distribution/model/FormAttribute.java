@@ -8,7 +8,7 @@ public class FormAttribute implements Serializable {
 
 	private String name;
 
-	private String type;
+	private int type;
 
 	private String options;
 
@@ -22,11 +22,11 @@ public class FormAttribute implements Serializable {
 		this.name = name;
 	}
 
-	public String getType() {
+	public int getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(int type) {
 		this.type = type;
 	}
 

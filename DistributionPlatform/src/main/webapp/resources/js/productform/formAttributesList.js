@@ -114,22 +114,22 @@ Ext.onReady(function() {
         
     	switch(val)
     	{
-    	case '1':
+    	case 1:
     		return '短文本';
     	  break;
-    	case '2':
+    	case 2:
     		return '长文本';
     	  break;
-    	case '3':
+    	case 3:
     		return '单选项';
     	  break;
-    	case '4':
+    	case 4:
     		return '多选项';
     	  break;
-    	case '5':
+    	case 5:
     		return '数值';
     	  break;
-    	case '6':
+    	case 6:
     		return '日期';
     	  break;
     	default:
@@ -189,7 +189,7 @@ Ext.onReady(function() {
             fieldLabel:'类型:',
             id:'type',
             name:'type',
-            displayField:'name', renderer:dislayType,
+            displayField:'name',
             valueField:'value',
             store: Ext.create('Ext.data.Store', {
                 fields:['name', 'value'],
