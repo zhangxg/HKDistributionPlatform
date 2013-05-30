@@ -17,4 +17,16 @@
         select name, type, options, required from FormAtrribute
     </select>
     
+    <update id="updateFormAttribute" parameterType="com.hk.distribution.model.FormAttribute">
+        update FormAtrribute set type = #{type}, options = #{options}, required = #{required}
+        where name = #{name}
+    </update>
+    
+     <delete id="deleteAttribute" parameterType="list">
+        delete from FormAtrribute where name in 
+        <foreach item="names"  collection="list" open="(" separator="," close=")">
+            #{names}
+        </foreach>
+    </delete>
+    
 </mapper>

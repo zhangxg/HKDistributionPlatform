@@ -3,6 +3,7 @@ package com.hk.distribution.controller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +32,7 @@ public class ProductFormController {
 
 	@Autowired
 	private ProductFormService proFormService;
-	
+
 	@RequestMapping("configur")
 	public ModelAndView productFormConfigur() {
 
@@ -47,37 +48,42 @@ public class ProductFormController {
 		mav.setViewName("productform/formAttributesList");
 		return mav;
 	}
-	
+
 	@RequestMapping("/save")
-    @ResponseBody
-    public String saveAttribute(String name, String type, String options, String required) {
+	@ResponseBody
+	public String saveAttribute(String editType, String name, String type, String options,
+			String required) {
 
-        FormAttribute attr = new FormAttribute();
-        
-        attr.setName(name);
-        attr.setType(type);
-        attr.setOptions(options);
-        attr.setRequired(required);
-		this.proFormService.saveFormAttribute(attr);
+		FormAttribute attr = new FormAttribute();
 
-        return "{'success':true}";
-    }
+		attr.setName(name);
+		attr.setType(type);
+		attr.setOptions(options);
+		attr.setRequired(required);
+
+        if ("1".equals(editType)) {
+        	this.proFormService.saveFormAttribute(attr);
+        } else if ("2".equals(editType)) {
+        	this.proFormService.updateAttribute(attr);
+        }
+		
+		
+
+		return "{'success':true}";
+	}
 
 	@RequestMapping("/json/listAttr")
 	@ResponseBody
 	public List<FormAttribute> listFormAttributes() {
-		
 		return proFormService.listFormAttributes();
+	}
 
-//		List<FormAttribute> list = new ArrayList<FormAttribute>();
-//
-//		FormAttribute attr = new FormAttribute();
-//		attr.setName("姓名");
-//		attr.setType("普通文本");
-//		attr.setOptions("n/a");
-//		attr.setRequired("是");
-//		list.add(attr);
-//		return list;
+	@RequestMapping("/delete")
+	@ResponseBody
+	public String deleteAttribute(String names) {
+		String[] rets = names.split(",");
+		proFormService.deleteAttribute(Arrays.asList(rets));
+		return "{'success':true}";
 	}
 
 	@RequestMapping("/generate")

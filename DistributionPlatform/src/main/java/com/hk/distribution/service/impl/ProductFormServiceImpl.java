@@ -27,4 +27,14 @@ public class ProductFormServiceImpl implements ProductFormService {
 		proFormDao.saveFormAttribute(attr);
 	}
 
+	@Override
+	public void deleteAttribute(List<String> names) {
+		proFormDao.deleteAttribute(names);
+		
+	}
+
+	@Override
+	public void updateAttribute(FormAttribute attr) {
+		proFormDao.updateFormAttribute(attr);
+	}
 }

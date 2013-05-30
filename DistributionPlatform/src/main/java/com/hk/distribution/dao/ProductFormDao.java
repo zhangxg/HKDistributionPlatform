@@ -8,6 +8,10 @@ public interface ProductFormDao {
 	
 	public void saveFormAttribute(FormAttribute attr);
 	
+	public void updateFormAttribute(FormAttribute attr);
+	
 	public List<FormAttribute> listFormAttributes();
+	
+	public void deleteAttribute(List<String> names);
 
 }

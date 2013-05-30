@@ -61,7 +61,7 @@ Ext.onReady(function() {
             iconCls:'icon-edit',
             handler:function() {
                 var obj = grid.getSelectionModel().selected.items[0];
-                //showEdit(obj);
+                showEdit(obj);
             }
         }, '-', {
             id:'del',
@@ -69,34 +69,34 @@ Ext.onReady(function() {
             iconCls:'icon-del',
             handler:function(){
             	
-//            	Ext.Msg.confirm("请确认", "确认要删除?", function(id){
-//            		if (id == "yes") {
-//            			var models = grid.getSelectionModel().selected.items;
-//                        var ids = '';
-//                        Ext.iterate(models, function(key, value) {
-//                            var tmp = key.data.address;
-//                            if(ids.length !=0) {
-//                                ids = ids + ',' + tmp;
-//                            } else {
-//                                ids = ids + tmp;
-//                            }
-//                        }, this);
-//                        Ext.Ajax.request({
-//                            url : '../site/delete.action',
-//                            params : {
-//                                address : ids
-//                            },
-//
-//                            success : function(response, option) {
-//                                Ext.Msg.alert('提示','删除成功');
-//                                grid.store.load();
-//                            },
-//                            failure : function() {
-//                                Ext.Msg.alert('提示','删除失败');
-//                            }
-//                        });
-//            		}
-//            	});
+            	Ext.Msg.confirm("请确认", "确认要删除?", function(id){
+            		if (id == "yes") {
+            			var models = grid.getSelectionModel().selected.items;
+                        var ids = '';
+                        Ext.iterate(models, function(key, value) {
+                            var tmp = key.data.name;
+                            if(ids.length !=0) {
+                                ids = ids + ',' + tmp;
+                            } else {
+                                ids = ids + tmp;
+                            }
+                        }, this);
+                        Ext.Ajax.request({
+                            url : '../pf/delete.action',
+                            params : {
+                                names : ids
+                            },
+
+                            success : function(response, option) {
+                                Ext.Msg.alert('提示','删除成功');
+                                grid.store.load();
+                            },
+                            failure : function() {
+                                Ext.Msg.alert('提示','删除失败');
+                            }
+                        });
+            		}
+            	});
             }
         }]
     });
@@ -189,7 +189,7 @@ Ext.onReady(function() {
             fieldLabel:'类型:',
             id:'type',
             name:'type',
-            displayField:'name',
+            displayField:'name', renderer:dislayType,
             valueField:'value',
             store: Ext.create('Ext.data.Store', {
                 fields:['name', 'value'],
